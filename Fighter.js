@@ -1,11 +1,16 @@
 class Fighter extends Character {
-	constructor(name, specialAttack, specialAttackDmg, hp = 12, dmg = 4, mana = 40) {
+	constructor(name, specialAttack = "black panther", specialAttackDmg = 5, hp = 12, dmg = 4, mana = 40) {
 		super(hp, dmg, mana)
-		this.specialAttack = "Dark Vision";
+		this.specialAttack = specialAttack;
 		this.name = name;
-		this.specialAttackDmg = 5;
+		this.specialAttackDmg = specialAttackDmg;
+
+		this.attack = function(ennemy) {
+			console.log(this.name + " attaque " + ennemy.name);
+			ennemy.hp = ennemy.hp - this.dmg;
+			console.log(ennemy.name + " a maintenant " + ennemy.hp + " pv");
+		}
 	}
+
+	
 }
-
-
-

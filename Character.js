@@ -1,8 +1,18 @@
 class Character {
-	constructor(hp, dmg, mana)
+	constructor(name, hp, dmg, mana, state){
+		this.name = name;
 		this.hp = hp;
 		this.dmg = dmg;
 		this.mana = mana;
-}
+		this.state = state;
 
-specialAttack = 
+
+		this.attack = function(ennemy) {
+			console.log(this.name + " attaque " + ennemy.name);
+			ennemy.hp = ennemy.hp - this.dmg;
+			console.log(ennemy.name + " a maintenant " + ennemy.hp + " pv");
+		}
+
+		
+	}	
+}
