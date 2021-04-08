@@ -1,18 +1,21 @@
-class Character {
-	constructor(name, hp, dmg, mana, state){
-		this.name = name;
-		this.hp = hp;
-		this.dmg = dmg;
-		this.mana = mana;
-		this.state = state;
+function Character (name, pv, att, mana, state = "alive") {
+    this.name = name;
+    this.pv = pv; 
+    this.att = att;
+    this.mana = mana;
+    this.state = state;
 
+    this.attack = function(character) {
+        console.log(this.name + " attaque " + character.name);
+        character.pv = (character.pv - this.att);
+        console.log(character.name + " a " + character.pv);
+    }
 
-		this.attack = function(ennemy) {
-			console.log(this.name + " attaque " + ennemy.name);
-			ennemy.hp = ennemy.hp - this.dmg;
-			console.log(ennemy.name + " a maintenant " + ennemy.hp + " pv");
-		}
-
-		
-	}	
+    this.isAlive = function(){
+        if (this.pv <= 0){
+            this.state = "dead"
+        }else{
+            this.state = "alive"
+        }
+    }
 }
